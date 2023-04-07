@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "CsprMK28fYVqABEMADHGFk+47XlxfbEJLx1TulWofj4=",
+  "Source": "CensoErgonomico.WebApp",
+  "BasePath": "_content/CensoErgonomico.WebApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

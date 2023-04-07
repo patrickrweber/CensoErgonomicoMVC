@@ -1,0 +1,12 @@
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\bin\Debug\net6.0\CensoErgonomico.Infra.Data.deps.json
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\bin\Debug\net6.0\CensoErgonomico.Infra.Data.dll
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\bin\Debug\net6.0\CensoErgonomico.Infra.Data.pdb
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\CensoErgonomico.Infra.Data.csproj.AssemblyReference.cache
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\CensoErgonomico.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\CensoErgonomico.Infra.Data.AssemblyInfoInputs.cache
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\CensoErgonomico.Infra.Data.AssemblyInfo.cs
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\CensoErgonomico.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\CensoErgonomico.Infra.Data.dll
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\refint\CensoErgonomico.Infra.Data.dll
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\CensoErgonomico.Infra.Data.pdb
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\ref\CensoErgonomico.Infra.Data.dll
