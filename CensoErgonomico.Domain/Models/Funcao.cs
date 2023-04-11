@@ -17,6 +17,6 @@ namespace CensoErgonomico.Domain.Models
         public int SetorId { get; set; }
         public Setor? Setor { get; set; }
 
-        public virtual List<Colaborador>? Colaboradores { get;set; }
+        public virtual ICollection<Colaborador>? Colaboradores { get;set; }
     }
 }

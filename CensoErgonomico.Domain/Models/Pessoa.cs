@@ -26,6 +26,6 @@ namespace CensoErgonomico.Domain.Models
         public TipoSexo Sexo  { get; set; }
 
 
-        public virtual List<Colaborador>?  Colaboradores { get; set;}
+        public virtual ICollection<Colaborador>?  Colaboradores { get; set;}
     }
 }
