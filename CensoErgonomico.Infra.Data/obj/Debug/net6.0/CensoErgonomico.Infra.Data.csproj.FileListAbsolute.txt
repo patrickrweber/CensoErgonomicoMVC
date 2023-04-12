@@ -10,3 +10,8 @@ C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\De
 C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\refint\CensoErgonomico.Infra.Data.dll
 C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\CensoErgonomico.Infra.Data.pdb
 C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\ref\CensoErgonomico.Infra.Data.dll
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\bin\Debug\net6.0\CensoErgonomico.Infra.Data.runtimeconfig.json
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\bin\Debug\net6.0\CensoErgonomico.Domain.dll
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\bin\Debug\net6.0\CensoErgonomico.Domain.pdb
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\CensoErgonomico.Infra.Data.csproj.CopyComplete
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Infra.Data\obj\Debug\net6.0\CensoErgonomico.Infra.Data.genruntimeconfig.cache
