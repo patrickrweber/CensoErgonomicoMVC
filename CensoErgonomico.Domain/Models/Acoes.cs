@@ -5,12 +5,10 @@ namespace CensoErgonomico.Domain.Models
     public class Acoes
     {
         public Guid Id { get; set; }
-        public int CensoErgonomicoId { get; set; }
-        public virtual CensoErgonomico? CensoErgonomico { get; set; }
 
         //Piora
         public bool PiorHrExtra { get; set; }
-        public bool PiorJornadoNormal { get; set; }
+        public bool PiorJornadaNormal { get; set; }
         public bool PiorFinalDia { get; set; }
         public bool PiorAtivDomestica { get; set; }
 

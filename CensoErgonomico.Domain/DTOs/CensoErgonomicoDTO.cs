@@ -7,8 +7,11 @@ namespace CensoErgonomico.Domain.DTOs
         public Guid id { get; set; }
         public DateTime dataCadastro { get; set; }
 
-        public int colaboradorId { get; set; }
+        public Guid colaboradorId { get; set; }
         public virtual Colaborador? colaborador { get; set; }
+
+        public Guid imcId { get; set; }
+        public virtual IMC? imc { get; set; }
 
         public bool fumante { get; set; }
         public bool praticaExercicio { get; set; }
@@ -17,13 +20,13 @@ namespace CensoErgonomico.Domain.DTOs
         public string consideracaoMotivoDor { get; set; }
         public string sugestaoMelhoria { get; set; }
 
-        public int acoesId { get; set; }
+        public Guid acoesId { get; set; }
         public virtual Acoes? acoes { get; set; }
 
-        public int locaisDoresId { get; set; }
+        public Guid locaisDoresId { get; set; }
         public virtual LocaisDores? locaisDores { get; set; }
 
-        public int sintomasId { get; set; }
+        public Guid sintomasId { get; set; }
         public virtual Sintomas? sintomas { get; set; }
 
         public Models.CensoErgonomico MapToEntity(CensoErgonomicoDTO censoErgonomicoDTO)
@@ -34,6 +37,8 @@ namespace CensoErgonomico.Domain.DTOs
                 DataCadastro = censoErgonomicoDTO.dataCadastro,
                 ColaboradorId = censoErgonomicoDTO.colaboradorId,
                 Colaborador = censoErgonomicoDTO.colaborador,
+                IMCId = censoErgonomicoDTO.imcId,
+                IMC = censoErgonomicoDTO.imc,
                 Fumante = censoErgonomicoDTO.fumante,
                 PraticaExercicio = censoErgonomicoDTO.praticaExercicio,
                 SenteDor = censoErgonomicoDTO.senteDor,
@@ -55,6 +60,8 @@ namespace CensoErgonomico.Domain.DTOs
                 dataCadastro = censoErgonomico.DataCadastro,
                 colaboradorId = censoErgonomico.ColaboradorId,
                 colaborador = censoErgonomico.Colaborador,
+                imcId = censoErgonomico.IMCId,
+                imc = censoErgonomico.IMC,
                 fumante = censoErgonomico.Fumante,
                 praticaExercicio = censoErgonomico.PraticaExercicio,
                 senteDor = censoErgonomico.SenteDor,

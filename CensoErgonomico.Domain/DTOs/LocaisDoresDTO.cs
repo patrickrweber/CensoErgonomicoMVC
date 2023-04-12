@@ -37,9 +37,6 @@ namespace CensoErgonomico.Domain.DTOs
         public TipoDor peE { get; set; }
         public TipoDor peD { get; set; }
 
-        public int censoErgonomicoId { get; set; }
-        public virtual Models.CensoErgonomico? censoErgonomico { get; set; }
-
         public LocaisDores MapToEntity(LocaisDoresDTO locaisDoresDTO)
         {
             return new LocaisDores
@@ -75,8 +72,6 @@ namespace CensoErgonomico.Domain.DTOs
                 TornozeloD = locaisDoresDTO.tornozeloD,
                 PeE = locaisDoresDTO.peE,
                 PeD = locaisDoresDTO.peD,
-                CensoErgonomicoId = locaisDoresDTO.censoErgonomicoId,
-                CensoErgonomico = locaisDoresDTO.censoErgonomico,
             };
         }
         public LocaisDoresDTO MapToDTO(LocaisDores locaisDores)
@@ -114,8 +109,6 @@ namespace CensoErgonomico.Domain.DTOs
                 tornozeloD = locaisDores.TornozeloD,
                 peE = locaisDores.PeE,
                 peD = locaisDores.PeD,
-                censoErgonomicoId = locaisDores.CensoErgonomicoId,
-                censoErgonomico = locaisDores.CensoErgonomico,
             };
         }
     }

@@ -8,7 +8,7 @@ namespace CensoErgonomico.Domain.DTOs
 
         public string nome { get; set; }
 
-        public int setorId { get; set; }
+        public Guid setorId { get; set; }
         public Setor? setor { get; set; }
 
         public virtual ICollection<Colaborador>? colaboradores { get; set; }

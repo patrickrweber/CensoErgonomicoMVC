@@ -6,9 +6,9 @@ namespace CensoErgonomico.Domain.Models
     {
         public Guid Id { get; set; }
 
-        public float Altura { get; set; }
-        public float Peso { get; set; }
-        public float Imc
+        public double Altura { get; set; }
+        public double Peso { get; set; }
+        public double Imc
         {
             get
             {
@@ -39,7 +39,7 @@ namespace CensoErgonomico.Domain.Models
 
             }
         }
-        public int PessoaId { get; set; }
+        public Guid PessoaId { get; set; }
         public virtual Pessoa? Pessoa { get; set; }
     }
 }

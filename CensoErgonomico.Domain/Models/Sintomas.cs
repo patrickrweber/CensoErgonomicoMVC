@@ -15,8 +15,5 @@ namespace CensoErgonomico.Domain.Models
         public bool ReducaoForca { get; set; }
         public bool LimitacaoMovimento { get; set; }
         public TipoTempoQueixa TempoQueixa { get; set; }
-
-        public int CensoErgonomicoId { get; set; }
-        public virtual CensoErgonomico? CensoErgonomico { get; set; }
     }
 }

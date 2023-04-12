@@ -35,8 +35,5 @@ namespace CensoErgonomico.Domain.Models
         public TipoDor TornozeloD { get; set; }
         public TipoDor PeE { get; set; }
         public TipoDor PeD { get; set; }
-
-        public int CensoErgonomicoId { get; set; }
-        public virtual CensoErgonomico? CensoErgonomico { get; set; }
     }
 }

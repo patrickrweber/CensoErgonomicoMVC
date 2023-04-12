@@ -12,14 +12,17 @@ namespace CensoErgonomico.Domain.Models
 
         [Required(ErrorMessage = "Digite o turno do colaborador")]
         public TipoTurno Turno { get; set; }
+        public DateTime InicioFuncao { get; set; }
 
-        public int SetorId { get; set; }
+        public Guid SetorId { get; set; }
         public virtual Setor? Setor { get; set; }
 
-        public int FuncaoId { get; set; }
+        public Guid FuncaoId { get; set; }
         public virtual Funcao? Funcao { get; set; }
 
-        public int PessoaId { get; set; }
+        public Guid PessoaId { get; set; }
         public virtual Pessoa? Pessoa { get;set; } 
+
+        public virtual ICollection<CensoErgonomico>? CensoErgonomicos { get; set; }
     }
 }

@@ -17,9 +17,6 @@ namespace CensoErgonomico.Domain.DTOs
         public bool limitacaoMovimento { get; set; }
         public TipoTempoQueixa tempoQueixa { get; set; }
 
-        public int censoErgonomicoId { get; set; }
-        public virtual Models.CensoErgonomico? censoErgonomico { get; set; }
-
         public Sintomas MapToEntity(SintomasDTO sintomasDTO)
         {
             return new Sintomas
@@ -34,8 +31,6 @@ namespace CensoErgonomico.Domain.DTOs
                 ReducaoForca = sintomasDTO.reducaoForca,
                 LimitacaoMovimento = sintomasDTO.limitacaoMovimento,
                 TempoQueixa = sintomasDTO.tempoQueixa,
-                CensoErgonomicoId = sintomasDTO.censoErgonomicoId,
-                CensoErgonomico = sintomasDTO.censoErgonomico,
             };
         }
         public SintomasDTO MapToDTO(Sintomas sintomas)
@@ -52,8 +47,6 @@ namespace CensoErgonomico.Domain.DTOs
                 reducaoForca = sintomas.ReducaoForca,
                 limitacaoMovimento = sintomas.LimitacaoMovimento,
                 tempoQueixa = sintomas.TempoQueixa,
-                censoErgonomicoId = sintomas.CensoErgonomicoId,
-                censoErgonomico = sintomas.CensoErgonomico
             };
         }
     }

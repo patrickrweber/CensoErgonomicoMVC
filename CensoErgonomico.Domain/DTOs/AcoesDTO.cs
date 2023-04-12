@@ -6,12 +6,10 @@ namespace CensoErgonomico.Domain.DTOs
     public class AcoesDTO
     {
         public Guid id { get; set; }
-        public int censoErgonomicoId { get; set; }
-        public virtual Models.CensoErgonomico? censoErgonomico { get; set; }
 
         //Piora
         public bool piorHrExtra { get; set; }
-        public bool piorJornadoNormal { get; set; }
+        public bool piorJornadaNormal { get; set; }
         public bool piorFinalDia { get; set; }
         public bool piorAtivDomestica { get; set; }
 
@@ -29,10 +27,8 @@ namespace CensoErgonomico.Domain.DTOs
             return new Acoes
             {
                 Id = acoesDTO.id,
-                CensoErgonomicoId = acoesDTO.censoErgonomicoId,
-                CensoErgonomico = acoesDTO.censoErgonomico,
                 PiorHrExtra = acoesDTO.piorHrExtra,
-                PiorJornadoNormal = acoesDTO.piorJornadoNormal,
+                PiorJornadaNormal = acoesDTO.piorJornadaNormal,
                 PiorFinalDia = acoesDTO.piorFinalDia,
                 PiorAtivDomestica = acoesDTO.piorAtivDomestica,
                 MelhorNoite = acoesDTO.melhorNoite,
@@ -47,10 +43,8 @@ namespace CensoErgonomico.Domain.DTOs
             return new AcoesDTO
             {
                 id = acoes.Id,
-                censoErgonomicoId = acoes.CensoErgonomicoId,
-                censoErgonomico = acoes.CensoErgonomico,
                 piorHrExtra = acoes.PiorHrExtra,
-                piorJornadoNormal = acoes.PiorJornadoNormal,
+                piorJornadaNormal = acoes.PiorJornadaNormal,
                 piorFinalDia = acoes.PiorFinalDia,
                 piorAtivDomestica = acoes.PiorAtivDomestica,
                 melhorNoite = acoes.MelhorNoite,

@@ -7,9 +7,9 @@ namespace CensoErgonomico.Domain.DTOs
     {
         public Guid id { get; set; }
 
-        public float altura { get; set; }
-        public float peso { get; set; }
-        public float imc
+        public double altura { get; set; }
+        public double peso { get; set; }
+        public double imc
         {
             get
             {
@@ -40,7 +40,7 @@ namespace CensoErgonomico.Domain.DTOs
 
             }
         }
-        public int pessoaId { get; set; }
+        public Guid pessoaId { get; set; }
         public virtual Pessoa? pessoa { get; set; }
 
         public IMC MapToEntity(IMCDTO imcDTO)
