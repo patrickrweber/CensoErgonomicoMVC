@@ -7,7 +7,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CensoErgonomico.Domain\CensoErgonomico.Domain.csproj" />
+    <ProjectReference Include="..\CensoErgonomico.Infra.Data\CensoErgonomico.Infra.Data.csproj" />
+    <ProjectReference Include="..\CensoErgonomico.Services\CensoErgonomico.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Acoes\" />
+    <Folder Include="Views\CensoErgonomico\" />
+    <Folder Include="Views\Colaborador\" />
+    <Folder Include="Views\Funcao\" />
+    <Folder Include="Views\IMC\" />
+    <Folder Include="Views\LocaisDores\" />
+    <Folder Include="Views\Sintomas\" />
+    <Folder Include="Views\Setor\" />
+    <Folder Include="Views\Pessoa\" />
   </ItemGroup>
 
 </Project>

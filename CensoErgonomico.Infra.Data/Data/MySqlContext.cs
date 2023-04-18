@@ -23,7 +23,7 @@ namespace CensoErgonomico.Infra.Data.Data
             var funcao = new Funcao()
             {
                 Id = Guid.NewGuid(),
-                Nome = "BENEFICIAMENTO",
+                Nome = "OP MÁQUINA III",
                 SetorId = setor.Id
             };
             modelBuilder.Entity<Funcao>()
