@@ -31,12 +31,9 @@
   <ItemGroup>
     <Folder Include="Views\Acoes\" />
     <Folder Include="Views\CensoErgonomico\" />
-    <Folder Include="Views\Colaborador\" />
-    <Folder Include="Views\Funcao\" />
     <Folder Include="Views\IMC\" />
     <Folder Include="Views\LocaisDores\" />
     <Folder Include="Views\Sintomas\" />
-    <Folder Include="Views\Setor\" />
     <Folder Include="Views\Pessoa\" />
   </ItemGroup>
 

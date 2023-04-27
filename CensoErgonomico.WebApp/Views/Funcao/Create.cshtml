@@ -1,0 +1,46 @@
+﻿@using CensoErgonomico.Domain.DTOs;
+@model FuncaoDTO;
+@{
+    //List<Setor> setores = ViewBag.setor.
+    ViewData["Title"] = "Censo ergonômico - Registro de função";
+}
+
+<section class="col-8 mx-auto">
+    <h1> @ViewData["Title"]</h1>
+    <div class="mt-2">
+        @await Html.PartialAsync("_MessageResult")
+    </div>
+
+    <form id="form-funcao" asp-controller="Funcao" asp-action="Create" method="POST">
+        <div class="form-group">
+            <label asp-for="setorId" class="control-label"></label>
+            <select asp-for="setorId" class="form-control" asp-items="ViewBag.setorId"></select>
+        </div>
+       @* <div class="form-group">
+            <label asp-for="Setor" class="control-label"> Setor </label>
+            <select id="selectize-codigo-descricao-servico" class="">
+                @if (setores != null && setores.Any())
+                {
+                    <option> Selecione </option>
+                    foreach (Setor setor in setores)
+                    {
+                        <option value="@setor.Id">
+                            @setor.Id : @setor.Nome
+                        </option>
+                    }
+                }
+            </select>
+            <input id="input-codigo-servico" type="hidden" asp-for="Setor" />
+            <span asp-validation-for="Setor" class="text-danger"></span>
+        </div>*@
+        <div class="form-group">
+            <label asp-for="nome" class="control-label"> Nome </label>
+            <input id="input-codigo-servico" type="text" asp-for="nome" />
+            <span asp-validation-for="nome" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <button id="btn-cadastrar" class="btn bg-shark text-black" style="width: 7rem;">Cadastrar</button>
+        </div>
+    </form>
+</section>
