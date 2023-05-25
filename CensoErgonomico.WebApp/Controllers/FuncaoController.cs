@@ -1,8 +1,10 @@
-﻿using CensoErgonomico.Domain.Interfaces.Repositories;
+﻿using CensoErgonomico.Domain.DTOs;
+using CensoErgonomico.Domain.Interfaces.Repositories;
 using CensoErgonomico.Domain.Models;
 using CensoErgonomico.Infra.Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace CensoErgonomico.WebApp.Controllers
 {
@@ -18,20 +20,22 @@ namespace CensoErgonomico.WebApp.Controllers
         }
         public IActionResult Index()
         {
-            ViewBag.setorId = new SelectList(_setorRepository.GetAll(), "id", "name", "Select...");
+            SetorDTO setorDTO = new SetorDTO();
+            ViewBag.setores = _setorRepository.GetAll().ToList().Select(setor => setorDTO.MapToDTO(setor)).ToList();
             return PartialView("~/Views/Funcao/Create.cshtml");
         }
 
         [HttpPost]
-        public IActionResult Create(Funcao funcao)
+        public IActionResult Create(FuncaoDTO funcaoDTO)
         {
             if (ModelState.IsValid)
             {
-                _funcaoRepository.Save(funcao);
+                _funcaoRepository.Save(funcaoDTO.MapToEntity(funcaoDTO));
                 TempData["Success"] = "Salvo com sucesso";
                 return RedirectToAction("Index", "Cadastros");
             }
             return RedirectToAction("Index", "Cadastros");
         }
+
     }
 }

@@ -1,0 +1,23 @@
+﻿@using CensoErgonomico.Domain.DTOs;
+@model SetorDTO;
+@{
+    ViewData["Title"] = "Registro de setor";
+}
+
+<section class="col-8 mx-auto">
+    <h1> @ViewData["Title"]</h1>
+    <div class="mt-2">
+        @await Html.PartialAsync("_MessageResult")
+    </div>
+    <form id="form-setor" asp-controller="Setor" asp-action="Create" method="POST">
+        <div class="form-group">
+            <label asp-for="nome" class="control-label"> Nome </label>
+            <input id="input-nome" type="text" asp-for="nome" />
+            <span asp-validation-for="nome" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <button id="btn-cadastrar" class="btn bg-shark text-black" style="width: 7rem;">Cadastrar</button>
+        </div>
+    </form>
+</section>

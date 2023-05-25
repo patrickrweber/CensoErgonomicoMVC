@@ -1,0 +1,12 @@
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Services\bin\Release\net6.0\CensoErgonomico.Services.deps.json
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Services\bin\Release\net6.0\CensoErgonomico.Services.dll
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Services\bin\Release\net6.0\CensoErgonomico.Services.pdb
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Services\obj\Release\net6.0\CensoErgonomico.Services.csproj.AssemblyReference.cache
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Services\obj\Release\net6.0\CensoErgonomico.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Services\obj\Release\net6.0\CensoErgonomico.Services.AssemblyInfoInputs.cache
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Services\obj\Release\net6.0\CensoErgonomico.Services.AssemblyInfo.cs
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Services\obj\Release\net6.0\CensoErgonomico.Services.csproj.CoreCompileInputs.cache
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Services\obj\Release\net6.0\CensoErgonomico.Services.dll
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Services\obj\Release\net6.0\refint\CensoErgonomico.Services.dll
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Services\obj\Release\net6.0\CensoErgonomico.Services.pdb
+C:\Users\patri\source\repos\CensoErgonomicoMVC\CensoErgonomico.Services\obj\Release\net6.0\ref\CensoErgonomico.Services.dll

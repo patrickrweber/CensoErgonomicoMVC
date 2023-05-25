@@ -7,46 +7,61 @@
             @await Html.PartialAsync("_MessageResult")
         </div>
         <div class="row row-cols-1 row-cols-md-3">
+            <a id="reg-pessoa" class="col cardi">
+                <div class="m-1 p-2 rounded" style="max-width: 300px;">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            <img src="/img/ancestors.png" class="img-fluid rounded-start img-top" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body pt-1">
+                                <h3 class="card-title">Pessoas</h3>
+                                <small class="card-text">Cadastro de pessoa.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
             <a id="reg-colaborador" class="col cardi">
-                <div class="m-1 p-2 rounded" style="max-width: 400px;">
+                <div class="m-1 p-2 rounded" style="max-width: 300px;">
                     <div class="row g-0">
                         <div class="col-md-3">
                             <img src="/img/employers.png" class="img-fluid rounded-start img-top" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body pt-1">
-                                <h3 class="card-title">Colaborador</h3>
-                                <small class="card-text">Cadastre um novo colaborador.</small>
+                                <h3 class="card-title">Colaboradores</h3>
+                                <small class="card-text">Cadastro de colaborador.</small>
                             </div>
                         </div>
                     </div>
                 </div>
             </a>
             <a id="reg-funcao" class="col cardi">
-                <div class="m-1 p-2 rounded" style="max-width: 400px;">
+                <div class="m-1 p-2 rounded" style="max-width: 300px;">
                     <div class="row g-0">
                         <div class="col-md-3">
                             <img src="/img/activity.png" class="img-fluid rounded-start img-top" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body pt-1">
-                                <h3 class="card-title">Função</h3>
-                                <small class="card-text">Cadatre uma nova função no sistema.</small>
+                                <h3 class="card-title">Funções</h3>
+                                <small class="card-text">Cadatro de função.</small>
                             </div>
                         </div>
                     </div>
                 </div>
             </a>
             <a id="reg-setor" class="col cardi">
-                <div class="m-1 p-2 rounded" style="max-width: 400px;">
+                <div class="m-1 p-2 rounded" style="max-width: 300px;">
                     <div class="row g-0">
                         <div class="col-md-3">
                             <img src="/img/people.png" class="img-fluid rounded-start img-top" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body pt-1">
-                                <h3 class="card-title">Setor</h3>
-                                <small class="card-text">Cadastre um novo setor da empresa.</small>
+                                <h3 class="card-title">Setores</h3>
+                                <small class="card-text">Cadastro de setor.</small>
                             </div>
                         </div>
                     </div>
@@ -55,7 +70,7 @@
         </div>
     </div>
     <hr />
-    <div class="container bd" id="register-area"></div>
+    <div class="container bd" id="register-area" style="float:left"></div>
 </section>
 
 @section Scripts {
@@ -66,6 +81,14 @@
         }
     </script>
     <script>
+        $('#reg-pessoa').click((e) => {
+            $.ajax({
+                url: `@Url.Action("Index", "Pessoa")`,
+                success: (resp) => {
+                    $('#register-area').html(resp);
+                }
+            });
+        });
         $('#reg-colaborador').click((e) => {
             $.ajax({
                 url: `@Url.Action("Index", "Colaborador")`,

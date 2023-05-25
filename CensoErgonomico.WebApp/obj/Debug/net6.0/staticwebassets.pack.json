@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\img\\activity.png"
     },
     {
+      "Id": "C:\\Users\\patri\\source\\repos\\CensoErgonomicoMVC\\CensoErgonomico.WebApp\\wwwroot\\img\\ancestors.png",
+      "PackagePath": "staticwebassets\\img\\ancestors.png"
+    },
+    {
       "Id": "C:\\Users\\patri\\source\\repos\\CensoErgonomicoMVC\\CensoErgonomico.WebApp\\wwwroot\\img\\employers.png",
       "PackagePath": "staticwebassets\\img\\employers.png"
     },

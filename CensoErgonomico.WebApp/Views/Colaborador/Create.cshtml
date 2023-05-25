@@ -1,5 +1,94 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using CensoErgonomico.Domain.DTOs;
+@model ColaboradorDTO;
 @{
+    List<SetorDTO> setores = ViewBag.setores;
+    List<PessoaDTO> pessoas = ViewBag.pessoas;
+    ViewData["Title"] = "Registro de colaborador";
 }
+
+<section class="col-8 mx-auto">
+    <h1> @ViewData["Title"]</h1>
+    <div class="mt-2">
+        @await Html.PartialAsync("_MessageResult")
+    </div>
+
+    <form id="form-colaborador" asp-controller="Colaborador" asp-action="Create" method="POST">
+        <div class="form-group">
+            <label class="control-label"> Setor </label>
+            <select asp-for="setorId" id="selectSetor" class="form-control">
+                @if (setores != null && setores.Any())
+                {
+                    <option> Selecione </option>
+                    foreach (SetorDTO setor in setores)
+                    {
+                        <option value="@setor.id">@setor.nome</option>
+                    }
+                }
+            </select>
+            <span asp-validation-for="setor" class="text-danger"></span>
+        </div>  
+        <div class="form-group">
+            <label  class="control-label"> Função </label>
+            <select asp-for="funcaoId" id="selectFuncao" class="form-control" data-setor-url="/funcoes?setorId=">
+            </select>
+            <span asp-validation-for="funcao" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label  class="control-label"> Pessoa </label>
+            <select asp-for="pessoaId" class="form-control">
+                @if (pessoas != null && pessoas.Any())
+                {
+                    <option> Selecione </option>
+                    foreach (PessoaDTO pessoa in pessoas)
+                    {
+                        <option value="@pessoa.id">@pessoa.nome</option>
+                    }
+                }
+            </select>
+            <span asp-validation-for="pessoa" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="cadastro" class="control-label"> Cadastro </label>
+            <input id="input-cadastro" type="text" asp-for="cadastro" />
+            <span asp-validation-for="cadastro" class="text-danger"></span>
+        </div>
+        <div class="form-group flex-grow-1">
+            <label asp-for="turno" class="control-label">Turno</label>
+            <select asp-for="turno" class="form-control">
+                <option value="0">Geral</option>
+                <option value="1">Primeiro</option>
+                <option value="2">Segundo</option>
+                <option value="3">Terceiro</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="inicioFuncao" class="control-label"> Início função</label>
+            <input id="input-inicioFuncao" type="datetime-local" asp-for="inicioFuncao" />
+            <span asp-validation-for="inicioFuncao" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button id="btn-cadastrar" class="btn bg-shark text-black" style="width: 7rem;">Cadastrar</button>
+        </div>
+    </form>
+</section>
+
+<script>
+    $('#document').ready(() => {
+        $('#selectSetor').on('change',() => {
+            var setorId = $('#selectSetor').val();
+            
+            var url = $("#selectFuncao").data("setor-url") + setorId;
+
+            $.get(url, function (data) {
+                
+                $("#selectFuncao").empty();
+                $("#selectFuncao").append("<option value=''>Selecione uma função</option>");
+
+                $.each(data, function (index, item) {
+                    $("#selectFuncao").append("<option value='" + item.id + "'>" + item.nome + "</option>");
+                });
+            });
+        });
+    });
+   
+</script>

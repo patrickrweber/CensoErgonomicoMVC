@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wt48yJElJOvJXRXW8UGskYw3//SBOYH9U9pSAOVRApg=",
+  "Hash": "U8VDjFHPfiVRoy2HTZDiGLBMtAuanfzLP2dhg5eGHLU=",
   "Source": "CensoErgonomico.WebApp",
   "BasePath": "_content/CensoErgonomico.WebApp",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\activity.png"
+    },
+    {
+      "Identity": "C:\\Users\\patri\\source\\repos\\CensoErgonomicoMVC\\CensoErgonomico.WebApp\\wwwroot\\img\\ancestors.png",
+      "SourceId": "CensoErgonomico.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patri\\source\\repos\\CensoErgonomicoMVC\\CensoErgonomico.WebApp\\wwwroot\\",
+      "BasePath": "_content/CensoErgonomico.WebApp",
+      "RelativePath": "img/ancestors.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\ancestors.png"
     },
     {
       "Identity": "C:\\Users\\patri\\source\\repos\\CensoErgonomicoMVC\\CensoErgonomico.WebApp\\wwwroot\\img\\employers.png",

@@ -1,0 +1,212 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html, body {
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+
+main {
+    max-height: 100%;
+}
+
+#main-wrapper {
+    max-height: 100%;
+    padding-bottom: 8rem;
+}
+
+.form-control:focus {
+    border-color: #346c84;
+    box-shadow: 0 2px 4px #346c84;
+}
+
+/* Custom colors */
+.bg-primary-application {
+    background-color: #24b49a;
+}
+
+.bg-sec-application {
+    background-color: #B2EBB5;
+}
+
+/* Custom screen */
+#mainDiv {
+    width: 95%; /* this will center the element horizontally */
+    height: 90%;
+    margin: auto;
+    /*overflow-y: auto;*/
+}
+
+/* Validation Styles */
+.field-validation-error {
+    color: red;
+}
+/* End Validation Styles */
+
+/* Layout MenuBar*/
+.navbar-nav .nav-item .nav-link.active {
+    color: #346c84 !important; /* Change text color of active link */
+    position: relative; /* Make the link relative so the circle can be positioned absolutely */
+}
+
+    .navbar-nav .nav-item .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 5px;
+        width: 5px;
+        background-color: #346c84;
+        border-radius: 50%;
+    }
+
+.nav-link.active + .selected-circle {
+    opacity: 1;
+    bottom: -10px;
+}
+
+.bg-shark {
+    background-color: #346c84;
+}
+
+.color-shark {
+    color: #346c84;
+}
+
+.border-shark-bottom {
+    border-bottom: 2px solid #346c84;
+}
+
+.btn-green {
+    background-color: #24b49a;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+
+
+.btn-standard-1 {
+    background-color: #b8bdc1;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.btn-warning-1 {
+    background-color: #1f2426;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.btn-danger-1 {
+    background-color: #d4145a;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.btn-green:hover {
+    background-color: #1a8874;
+}
+
+
+.nf-topic {
+    color: wheat;
+    padding-top: 20em;
+}
+
+
+.cancel-question {
+    padding-top: 15em;
+}
+
+.crud-text {
+    padding-bottom: 1em;
+}
+
+.form-group {
+    padding: 1em;
+}
+
+.subtitle {
+    padding-bottom: 1em;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+.color-container {
+    background-color: #f9f9f9;
+}
+
+.img-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.text-color-green {
+    color: #24b49a;
+}
+
+.datatable dt {
+    overflow: scroll;
+    white-space: nowrap;
+}
+
+#main-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/*Menu bar style*/
+.header-index {
+    padding-top: 3em;
+    padding-bottom: 1em;
+}
+
+.tool-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.session-nav {
+    padding-left: 10em;
+}
+/*End menu bar style*/
+
+/*Buttons NF list*/
+.img-btn {
+    width: 30px;
+    height: 30px;
+}
+
+
+.btn-standard-1:hover {
+    background-color: #565d5e;
+}
+
+
+.btn-danger-1:hover {
+    background-color: #961248;
+}
+
+.text-color-red {
+    color: #d4145a;
+}

@@ -10,13 +10,13 @@ builder.Services.AddDbContext<MySqlContext>
     (options => options.UseMySql(MySqlConnectionString, ServerVersion.AutoDetect(MySqlConnectionString)));
 // Add services to the container.
 
-//builder.Services.AddControllers();
+builder.Services.AddControllers();
 
-//builder.Services.AddSession(options =>
-//{
-//    options.Cookie.HttpOnly = true;
-//    options.Cookie.IsEssential = true;
-//});
+builder.Services.AddSession(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IAcoesRepository, AcoesRepository>();
@@ -38,21 +38,22 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-//app.UseSession();
+app.UseSession();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-//Run migration
-//using (var scope = app.Services.CreateScope())
-//{
-//    var services = scope.ServiceProvider;
 
-//    var context = services.GetRequiredService<MySqlContext>();
-//    if (context.Database.GetPendingMigrations().Any())
-//    {
-//        context.Database.Migrate();
-//    }
-//}
+//Run migration
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var context = services.GetRequiredService<MySqlContext>();
+    if (context.Database.GetPendingMigrations().Any())
+    {
+        context.Database.Migrate();
+    }
+}
 
 app.Run();
