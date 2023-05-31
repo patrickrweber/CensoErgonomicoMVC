@@ -210,3 +210,8 @@ li {
 .text-color-red {
     color: #d4145a;
 }
+
+.idade {
+    display: block;
+    margin-bottom: 10px;
+}

@@ -6,89 +6,126 @@
     ViewData["Title"] = "Registro de colaborador";
 }
 
-<section class="col-8 mx-auto">
-    <h1> @ViewData["Title"]</h1>
+<section class="col-12 mx-auto">
+    <h1 style="justify-content:center"> @ViewData["Title"]</h1>
     <div class="mt-2">
         @await Html.PartialAsync("_MessageResult")
     </div>
 
     <form id="form-colaborador" asp-controller="Colaborador" asp-action="Create" method="POST">
-        <div class="form-group">
-            <label class="control-label"> Setor </label>
-            <select asp-for="setorId" id="selectSetor" class="form-control">
-                @if (setores != null && setores.Any())
-                {
-                    <option> Selecione </option>
-                    foreach (SetorDTO setor in setores)
-                    {
-                        <option value="@setor.id">@setor.nome</option>
-                    }
-                }
-            </select>
-            <span asp-validation-for="setor" class="text-danger"></span>
-        </div>  
-        <div class="form-group">
-            <label  class="control-label"> Função </label>
-            <select asp-for="funcaoId" id="selectFuncao" class="form-control" data-setor-url="/funcoes?setorId=">
-            </select>
-            <span asp-validation-for="funcao" class="text-danger"></span>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label"> Pessoa </label>
+                    <select asp-for="pessoaId" class="form-control">
+                        @if (pessoas != null && pessoas.Any())
+                        {
+                            foreach (PessoaDTO pessoa in pessoas)
+                            {
+                                <option value="@pessoa.id">@pessoa.nome</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="pessoa" class="text-danger"></span>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label  class="control-label"> Pessoa </label>
-            <select asp-for="pessoaId" class="form-control">
-                @if (pessoas != null && pessoas.Any())
-                {
-                    <option> Selecione </option>
-                    foreach (PessoaDTO pessoa in pessoas)
-                    {
-                        <option value="@pessoa.id">@pessoa.nome</option>
-                    }
-                }
-            </select>
-            <span asp-validation-for="pessoa" class="text-danger"></span>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label"> Setor </label>
+                    <select asp-for="setorId" id="selectSetor" class="form-control">
+                        @if (setores != null && setores.Any())
+                        {
+                            foreach (SetorDTO setor in setores)
+                            {
+                                <option value="@setor.id">@setor.nome</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="setor" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label"> Função </label>
+                    <select asp-for="funcaoId" id="selectFuncao" class="form-control" data-setor-url="/funcoes?setorId=">
+                    </select>
+                    <span asp-validation-for="funcao" class="text-danger"></span>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label asp-for="cadastro" class="control-label"> Cadastro </label>
-            <input id="input-cadastro" type="text" asp-for="cadastro" />
-            <span asp-validation-for="cadastro" class="text-danger"></span>
+        <div class="row" style="align-items:center">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label asp-for="cadastro" class="control-label"> Cadastro </label>
+                    <input id="input-cadastro" type="text" asp-for="cadastro" />
+                    <span asp-validation-for="cadastro" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="turno" class="control-label">Turno</label>
+                    <select asp-for="turno" class="form-control">
+                        <option value="0">Geral</option>
+                        <option value="1">Primeiro</option>
+                        <option value="2">Segundo</option>
+                        <option value="3">Terceiro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="inicioFuncao" class="control-label"> Início função</label>
+                    <input id="input-inicioFuncao" type="datetime-local" asp-for="inicioFuncao" />
+                    <span asp-validation-for="inicioFuncao" class="text-danger"></span>
+                </div>
+            </div>
         </div>
-        <div class="form-group flex-grow-1">
-            <label asp-for="turno" class="control-label">Turno</label>
-            <select asp-for="turno" class="form-control">
-                <option value="0">Geral</option>
-                <option value="1">Primeiro</option>
-                <option value="2">Segundo</option>
-                <option value="3">Terceiro</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label asp-for="inicioFuncao" class="control-label"> Início função</label>
-            <input id="input-inicioFuncao" type="datetime-local" asp-for="inicioFuncao" />
-            <span asp-validation-for="inicioFuncao" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <button id="btn-cadastrar" class="btn bg-shark text-black" style="width: 7rem;">Cadastrar</button>
+        <div class="row">
+            <div class="form-group">
+                <button id="btn-cadastrar" class="btn bg-shark text-black" style="width: 7rem;">Cadastrar</button>
+            </div>
         </div>
     </form>
 </section>
 
 <script>
     $('#document').ready(() => {
-        $('#selectSetor').on('change',() => {
-            var setorId = $('#selectSetor').val();
-            
-            var url = $("#selectFuncao").data("setor-url") + setorId;
-
-            $.get(url, function (data) {
-                
-                $("#selectFuncao").empty();
-                $("#selectFuncao").append("<option value=''>Selecione uma função</option>");
-
-                $.each(data, function (index, item) {
-                    $("#selectFuncao").append("<option value='" + item.id + "'>" + item.nome + "</option>");
-                });
-            });
+        getFuncoes();
+        $('#selectSetor').on('change', () => {
+            console.log("mudou");
+            getFuncoes();
         });
+
+        function getFuncoes() {
+            var setorId = $('#selectSetor').val();
+            $("#selectFuncao").empty();
+            $.ajax({
+                url: '@Url.Action("GetFuncoes", "Colaborador")',
+                type: 'GET',
+                data: { setorId: setorId },
+                success: function (response) {
+                    console.log(response);
+                    if(response.length > 0){
+                        preencherSelectFuncao(response);
+                    }else{
+                        $("#selectFuncao").append("<option value=''>Não há funções cadastradas para este setor</option>");
+                    }
+                    
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        };
+
+        function preencherSelectFuncao(response) {
+            $.each(response, function (index, item) {
+                $("#selectFuncao").append("<option value='" + item.id + "'>" + item.nome + "</option>");
+            });
+        };
+
     });
-   
+
 </script>

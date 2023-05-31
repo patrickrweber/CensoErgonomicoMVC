@@ -1,5 +1,6 @@
 ﻿using CensoErgonomico.Domain.DTOs;
 using CensoErgonomico.Domain.Interfaces.Repositories;
+using CensoErgonomico.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CensoErgonomico.WebApp.Controllers
@@ -41,10 +42,16 @@ namespace CensoErgonomico.WebApp.Controllers
             }
             return RedirectToAction("Index", "Cadastros");
         }
-        [Route("funcoes")]
-        public JsonResult Funcoes(Guid setorId)
+
+        [HttpGet]
+        public IActionResult GetFuncoes(Guid setorId)
         {
             var funcoes = _funcaoRepository.GetAll().Where(f => f.SetorId == setorId).ToList();
+
+            List<FuncaoDTO> funcoesDTO = new List<FuncaoDTO>();
+            FuncaoDTO funcaoDTO = new FuncaoDTO();
+            funcoesDTO = funcoes.Select(f => funcaoDTO.MapToDTO(f)).ToList();
+
             return Json(funcoes);
         }
     }

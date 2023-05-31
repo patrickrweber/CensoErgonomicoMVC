@@ -5,52 +5,78 @@
     ViewData["Title"] = "Censo ergonômico";
 }
 
-<section class="col-8 mx-auto">
+<section class="col-20 mx-auto">
     <h1> @ViewData["Title"]</h1>
     <div class="mt-2">
         @await Html.PartialAsync("_MessageResult")
     </div>
 
     <form id="form-censo" asp-controller="CensoErgonomico" asp-action="Create" method="POST">
-        <div class="form-group">
-            <label class="control-label"> Colaborador </label>
-            <select asp-for="colaboradorId" id="selectColaborador" class="form-control">
-                @if (colaboradores != null && colaboradores.Any())
-                {
-                    foreach (ColaboradorDTO colaborador in colaboradores)
-                    {
-                        <option value="@colaborador.id">@colaborador.pessoa.Nome</option>
-                    }
-                }
-            </select>
-            <span asp-validation-for="colaborador" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label class="control-label"> Idade </label>
-            <input id="input-idade" disabled />
-        </div>
-        <div class="form-group">
-            <label class="control-label"> Sexo </label>
-            <input id="input-sexo" disabled />
-        </div>
-        <div class="form-group">
-            <label class="control-label"> Turno </label>
-            <input id="input-turno" disabled />
-        </div>
-        <div class="form-group">
-            <label class="control-label"> Setor </label>
-            <input id="input-setor" disabled />
-        </div>
-        <div class="form-group">
-            <label class="control-label"> Função </label>
-            <input id="input-funcao" disabled />
-        </div>
-        <div class="form-group">
-            <label class="control-label"> Cadastro </label>
-            <input id="input-cadastro" disabled />
-        </div>
-        <div class="form-group">
-            <button id="btn-cadastrar" class="btn bg-shark text-black" style="width: 7rem;">Cadastrar</button>
+        <div>
+            <div class="row" style="justify-content:center;">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="control-label" > Colaborador </label>
+                        <select asp-for="colaboradorId" id="selectColaborador" class="form-control">
+                            @if (colaboradores != null && colaboradores.Any())
+                            {
+                                foreach (ColaboradorDTO colaborador in colaboradores)
+                                {
+                                    <option value="@colaborador.id">@colaborador.pessoa.Nome</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="colaborador" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label> Idade </label>
+                        <input id="input-idade" disabled />
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label> Sexo </label>
+                        <input id="input-sexo" disabled />
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label"> Turno </label>
+                        <input id="input-turno" disabled />
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label"> Setor </label>
+                        <input id="input-setor" disabled />
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label"> Função </label>
+                        <input id="input-funcao" disabled />
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label"> Cadastro </label>
+                        <input id="input-cadastro" disabled />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button id="btn-cadastrar" class="btn bg-shark text-black" style="width: 7rem;">Cadastrar</button>
+            </div>
         </div>
     </form>
 </section>
@@ -63,14 +89,13 @@
                 getColaborador();
             });
 
-            function getColaborador(){
+            function getColaborador() {
                 var colaboradorId = $('#selectColaborador').val();
                 $.ajax({
                     url: '@Url.Action("GetColaborador", "CensoErgonomico")',
                     type: 'GET',
                     data: { id: colaboradorId },
                     success: function (response) {
-
                         inserirValoresColaborador(response)
                     },
                     error: function (xhr, status, error) {

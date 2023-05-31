@@ -12,27 +12,34 @@
     </div>
 
     <form id="form-funcao" asp-controller="Funcao" asp-action="Create" method="POST">
-        <div class="form-group">
-            <label class="control-label"> Setor </label>
-            <select asp-for="setorId" class="form-control">
-                @if (setores != null && setores.Any())
-                {
-                    <option> Selecione </option>
-                    foreach (SetorDTO setor in setores)
-                    {
-                        <option value="@setor.id">@setor.nome</option>
-                    }
-                }
-            </select>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label"> Setor </label>
+                    <select asp-for="setorId" class="form-control">
+                        @if (setores != null && setores.Any())
+                        {
+                            <option> Selecione </option>
+                            foreach (SetorDTO setor in setores)
+                            {
+                                <option value="@setor.id">@setor.nome</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="nome" class="control-label"> Nome </label>
+                    <input id="input-nome" type="text" asp-for="nome" />
+                    <span asp-validation-for="nome" class="text-danger"></span>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label asp-for="nome" class="control-label"> Nome </label>
-            <input id="input-nome" type="text" asp-for="nome" />
-            <span asp-validation-for="nome" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <button id="btn-cadastrar" class="btn bg-shark text-black" style="width: 7rem;">Cadastrar</button>
+        <div class="row">
+            <div class="form-group">
+                <button id="btn-cadastrar" class="btn bg-shark text-black" style="width: 7rem;">Cadastrar</button>
+            </div>
         </div>
     </form>
 </section>
