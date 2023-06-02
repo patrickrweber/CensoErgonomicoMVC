@@ -16,7 +16,7 @@
             <div class="row" style="justify-content:center;">
                 <div class="col-lg-6">
                     <div class="form-group">
-                        <label class="control-label" > Colaborador </label>
+                        <label class="control-label"> Colaborador </label>
                         <select asp-for="colaboradorId" id="selectColaborador" class="form-control">
                             @if (colaboradores != null && colaboradores.Any())
                             {
@@ -73,6 +73,11 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div id="partialContainerHabitos">
+
+                </div>
+            </div>
 
             <div class="form-group">
                 <button id="btn-cadastrar" class="btn bg-shark text-black" style="width: 7rem;">Cadastrar</button>
@@ -85,6 +90,8 @@
     <script>
         $('#document').ready(() => {
             getColaborador();
+            getViewHabitos();
+
             $('#selectColaborador').on('change', () => {
                 getColaborador();
             });
@@ -110,6 +117,16 @@
                         $('#input-' + key).val(colaborador[key]);
                     }
                 }
+            };
+
+            function getViewHabitos() {
+                $.ajax({
+                    url: '@Url.Action("GetViewHabitos", "CensoErgonomico")',
+                    type: 'GET',
+                    success: function (result) {
+                        $('#partialContainerHabitos').html(result);
+                    }
+                });
             };
         });
     </script>

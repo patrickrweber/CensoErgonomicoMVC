@@ -1,5 +1,5 @@
 ﻿@using CensoErgonomico.Domain.DTOs;
-@model PessoaDTO;
+@model PessoaLinks;
 @{
     ViewData["Title"] = "Registro de Pessoa";
 }
@@ -13,35 +13,51 @@
         <div class="row">
             <div class="col-md-2">
                 <div class="form-group">
-                    <label asp-for="nome" class="control-label"> Nome </label>
-                    <input id="input-nome" type="text" asp-for="nome" />
-                    <span asp-validation-for="nome" class="text-danger"></span>
+                    <label asp-for="Pessoa.nome" class="control-label"> Nome </label>
+                    <input id="input-nome" type="text" asp-for="Pessoa.nome" />
+                    <span asp-validation-for="Pessoa.nome" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group">
-                    <label asp-for="cpf" class="control-label"> CPF </label>
-                    <input id="input-cpf" type="text" asp-for="cpf" />
-                    <span asp-validation-for="cpf" class="text-danger"></span>
+                    <label asp-for="Pessoa.cpf" class="control-label"> CPF </label>
+                    <input id="input-cpf" type="text" asp-for="Pessoa.cpf" />
+                    <span asp-validation-for="Pessoa.cpf" class="text-danger"></span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-2">
                 <div class="form-group">
-                    <label asp-for="dataNascimento" class="control-label"> Data de Nascimento</label>
-                    <input id="input-dataNascimento" type="datetime-local" asp-for="dataNascimento" />
-                    <span asp-validation-for="dataNascimento" class="text-danger"></span>
+                    <label asp-for="Pessoa.dataNascimento" class="control-label"> Data de Nascimento</label>
+                    <input id="input-dataNascimento" type="datetime-local" asp-for="Pessoa.dataNascimento" />
+                    <span asp-validation-for="Pessoa.dataNascimento" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group flex-grow-1">
-                    <label asp-for="sexo" class="control-label">Sexo</label>
-                    <select asp-for="sexo" class="form-control">
+                    <label asp-for="Pessoa.sexo" class="control-label">Sexo</label>
+                    <select asp-for="Pessoa.sexo" class="form-control">
                         <option value="1">Masculino</option>
                         <option value="2">Feminino</option>
                         <option value="3">Outro</option>
                     </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                   <label asp-for="IMC.altura" class="control-label"> Altura </label>
+                    <input id="input-altura" type="number" asp-for="IMC.altura" />
+                    <span asp-validation-for="IMC.altura" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group flex-grow-1">
+                    <label asp-for="IMC.peso" class="control-label"> Peso </label>
+                    <input id="input-cpf" type="number" asp-for="IMC.peso" />
+                    <span asp-validation-for="IMC.peso" class="text-danger"></span>
                 </div>
             </div>
         </div>

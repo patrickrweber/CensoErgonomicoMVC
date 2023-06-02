@@ -22,6 +22,10 @@ namespace CensoErgonomico.WebApp.Controllers
         {
             return View();
         }
+        public IActionResult Create(CensoErgonomicoDTO censo)
+        {
+            return RedirectToAction("Cadastro", "CensoErgonomico");
+        }
         public IActionResult Cadastro()
         {
             ColaboradorDTO colaboradorDTO = new ColaboradorDTO();
@@ -58,6 +62,11 @@ namespace CensoErgonomico.WebApp.Controllers
             };
 
             return Ok(colabJson);
+        }
+
+        public IActionResult GetViewHabitos()
+        {
+            return PartialView("~/Views/CensoErgonomico/Habitos.cshtml");
         }
     }
 }
