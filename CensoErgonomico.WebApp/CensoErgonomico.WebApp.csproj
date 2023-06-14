@@ -35,4 +35,11 @@
     <Folder Include="Views\Sintomas\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\CensoErgonomico\LocaisDores.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

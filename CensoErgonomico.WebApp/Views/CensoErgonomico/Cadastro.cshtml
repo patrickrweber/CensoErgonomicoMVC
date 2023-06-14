@@ -77,6 +77,9 @@
                 <div id="partialContainerHabitos">
 
                 </div>
+                <div id="partialContainerLocaisDores">
+
+                </div>
             </div>
 
             <div class="form-group">
@@ -91,6 +94,7 @@
         $('#document').ready(() => {
             getColaborador();
             getViewHabitos();
+            getViewLocaisDores();
 
             $('#selectColaborador').on('change', () => {
                 getColaborador();
@@ -125,6 +129,16 @@
                     type: 'GET',
                     success: function (result) {
                         $('#partialContainerHabitos').html(result);
+                    }
+                });
+            };
+
+             function getViewLocaisDores() {
+                $.ajax({
+                    url: '@Url.Action("GetViewLocaisDores", "CensoErgonomico")',
+                    type: 'GET',
+                    success: function (result) {
+                        $('#partialContainerLocaisDores').html(result);
                     }
                 });
             };

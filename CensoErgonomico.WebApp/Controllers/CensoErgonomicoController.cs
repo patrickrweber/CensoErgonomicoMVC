@@ -1,10 +1,14 @@
 ﻿using CensoErgonomico.Domain.DTOs;
+using CensoErgonomico.Domain.Enums;
 using CensoErgonomico.Domain.Interfaces.Repositories;
 using CensoErgonomico.Domain.Models;
 using CensoErgonomico.Infra.Data.Data;
 using CensoErgonomico.Infra.Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace CensoErgonomico.WebApp.Controllers
 {
@@ -67,6 +71,27 @@ namespace CensoErgonomico.WebApp.Controllers
         public IActionResult GetViewHabitos()
         {
             return PartialView("~/Views/CensoErgonomico/Habitos.cshtml");
+        }
+        public IActionResult GetViewLocaisDores()
+        {
+            ViewBag.locaisDores = GetAttributeDictionary<LocaisDoresDTO>();
+            return PartialView("~/Views/CensoErgonomico/LocaisDores.cshtml");
+        }
+        public static Dictionary<PropertyInfo, string> GetAttributeDictionary<T>()
+        {
+            Dictionary<PropertyInfo, string> attributeDictionary = new Dictionary<PropertyInfo, string>();
+
+            foreach (PropertyInfo property in typeof(T).GetProperties())
+            {
+                LegendaAttribute atributoLegenda = property.GetCustomAttribute<LegendaAttribute>();
+
+                if(atributoLegenda != null)
+                {
+                    attributeDictionary.Add(property, atributoLegenda.Legenda);
+                }
+            }
+
+            return attributeDictionary;
         }
     }
 }

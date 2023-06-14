@@ -94,7 +94,6 @@
     $('#document').ready(() => {
         getFuncoes();
         $('#selectSetor').on('change', () => {
-            console.log("mudou");
             getFuncoes();
         });
 
@@ -106,7 +105,6 @@
                 type: 'GET',
                 data: { setorId: setorId },
                 success: function (response) {
-                    console.log(response);
                     if(response.length > 0){
                         preencherSelectFuncao(response);
                     }else{
