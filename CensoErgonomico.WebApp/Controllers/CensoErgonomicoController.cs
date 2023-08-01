@@ -16,11 +16,13 @@ namespace CensoErgonomico.WebApp.Controllers
     {
         private readonly ICensoErgonomicoRepository _censoRepository;
         private readonly IColaboradorRepository _colaboradorRepository;
+        private readonly IIMCRepository _imcRepository;
         public CensoErgonomicoController(ICensoErgonomicoRepository censoRepository,
-            IColaboradorRepository colaboradorRepository)
+            IColaboradorRepository colaboradorRepository, IIMCRepository imcRepository)
         {
             _censoRepository = censoRepository;
             _colaboradorRepository = colaboradorRepository;
+            _imcRepository = imcRepository;
         }
         public IActionResult Index()
         {
@@ -62,7 +64,34 @@ namespace CensoErgonomico.WebApp.Controllers
                 turno = colaboradorDTO.turno.ToString(),
                 setor = colaboradorDTO.setor.Nome,
                 funcao = colaboradorDTO.funcao.Nome,
-                cadastro = colaboradorDTO.cadastro
+                cadastro = colaboradorDTO.cadastro,
+            };
+
+            return Ok(colabJson);
+        }
+        public IActionResult GetIMC(Guid id)
+        {
+            Colaborador colaborador = _colaboradorRepository.GetAll()
+               .Include(c => c.Pessoa)
+               .FirstOrDefault(c => c.Id.Equals(id));
+
+            ColaboradorDTO colaboradorDTO = new ColaboradorDTO();
+            colaboradorDTO = colaboradorDTO.MapToDTO(colaborador);
+
+            IMCDTO imcDTO = new IMCDTO();
+            imcDTO = imcDTO.MapToDTO(_imcRepository.GetAll().First(imc => imc.PessoaId.Equals(colaboradorDTO.pessoaId)));
+
+            if (colaborador == null || colaboradorDTO == null || imcDTO == null)
+            {
+                return NotFound();
+            }
+
+            var colabJson = new
+            {
+                altura = imcDTO.altura,
+                peso = imcDTO.peso,
+                imc = imcDTO.imc,
+                classificacao = imcDTO.classificacaoIMC.ToString(),
             };
 
             return Ok(colabJson);
@@ -76,7 +105,7 @@ namespace CensoErgonomico.WebApp.Controllers
         {
             ViewBag.locaisDores = GetAttributeDictionary<LocaisDoresDTO>();
             return PartialView("~/Views/CensoErgonomico/LocaisDores.cshtml");
-        }
+        }   
         public static Dictionary<PropertyInfo, string> GetAttributeDictionary<T>()
         {
             Dictionary<PropertyInfo, string> attributeDictionary = new Dictionary<PropertyInfo, string>();

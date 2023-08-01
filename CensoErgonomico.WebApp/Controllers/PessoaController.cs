@@ -17,7 +17,7 @@ namespace CensoErgonomico.WebApp.Controllers
         }
         public IActionResult Index()
         {
-            return PartialView("~/Views/Pessoa/Create.cshtml");
+            return PartialView("~/Views/Pessoa/Index.cshtml");
         }
 
         [HttpPost]

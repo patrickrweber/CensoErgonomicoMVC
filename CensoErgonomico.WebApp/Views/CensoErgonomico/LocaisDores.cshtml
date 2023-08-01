@@ -4,27 +4,23 @@
     ViewData["Title"] = "Censo ergonômico";
 }
 
-<section>
-    <form id="form-censo" asp-controller="CensoErgonomico" asp-action="Create" method="POST">
-        <div>
-            <div class="row">
-                @foreach (var local in locaisDores)
-                {
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label asp-for="@local.Key" class="control-label"> @local.Value </label>
-                            <select class="form-control optionDores" asp-for="@local.Key">
-                                <option value="0"> Nenhuma </option>
-                                <option value="1"> Leve </option>
-                                <option value="2"> Moderada </option>
-                                <option value="3"> Forte </option>
-                                <option value="4"> Excessiva </option>
-                            </select>
-                        </div>
-                    </div>
-                }
+<form id="form-censo" asp-controller="CensoErgonomico" asp-action="Create" method="POST" >
+    <div class="row">
+        @foreach (var local in locaisDores)
+        {
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="@local.Key" class="control-label"> @local.Value </label>
+                    <select class="form-control optionDores" asp-for="@local.Key">
+                        <option value="0"> Nenhuma </option>
+                        <option value="1"> Leve </option>
+                        <option value="2"> Moderada </option>
+                        <option value="3"> Forte </option>
+                        <option value="4"> Excessiva </option>
+                    </select>
+                </div>
             </div>
-        </div>
-    </form>
-</section>
+        }
+    </div>
+</form>
 

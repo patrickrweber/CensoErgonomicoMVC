@@ -1,9 +1,5 @@
 ﻿@using CensoErgonomico.Domain.DTOs;
 @model CensoErgonomicoDTO;
-@{
-    List<ColaboradorDTO> colaboradores = ViewBag.colaboradores;
-    ViewData["Title"] = "Censo ergonômico";
-}
 
 <section>
     <form id="form-censo" asp-controller="CensoErgonomico" asp-action="Create" method="POST">

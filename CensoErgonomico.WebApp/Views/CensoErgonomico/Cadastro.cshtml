@@ -5,7 +5,7 @@
     ViewData["Title"] = "Censo ergonômico";
 }
 
-<section class="col-20 mx-auto">
+<section class="col-20 mx-auto" >
     <h1> @ViewData["Title"]</h1>
     <div class="mt-2">
         @await Html.PartialAsync("_MessageResult")
@@ -72,13 +72,37 @@
                         <input id="input-cadastro" disabled />
                     </div>
                 </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label"> Altura (Cm) </label>
+                        <input id="input-altura" disabled />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label"> Peso (Kg) </label>
+                        <input id="input-peso" disabled />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label"> IMC </label>
+                        <input id="input-imc" disabled />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label"> Classificação </label>
+                        <input id="input-classificacao" disabled />
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div id="partialContainerHabitos">
-
                 </div>
-                <div id="partialContainerLocaisDores">
-
+                <div id="partialContainerLocaisDores" style="height: 20vw; overflow: auto" class="row">
+                </div> 
+                <div id="partialContainerIMC" class="row">
                 </div>
             </div>
 
@@ -93,11 +117,13 @@
     <script>
         $('#document').ready(() => {
             getColaborador();
+            getIMC();
             getViewHabitos();
             getViewLocaisDores();
 
             $('#selectColaborador').on('change', () => {
                 getColaborador();
+                getIMC();
             });
 
             function getColaborador() {
@@ -107,15 +133,29 @@
                     type: 'GET',
                     data: { id: colaboradorId },
                     success: function (response) {
-                        inserirValoresColaborador(response)
+                        inserirValores(response)
                     },
                     error: function (xhr, status, error) {
-                        console.log(error);
+                        console.log("erro" + error);
+                    }
+                });
+            };
+            function getIMC() {
+                var colaboradorId = $('#selectColaborador').val();
+                $.ajax({
+                    url: '@Url.Action("GetIMC", "CensoErgonomico")',
+                    type: 'GET',
+                    data: { id: colaboradorId },
+                    success: function (response) {
+                        inserirValores(response)
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("erro" + error);
                     }
                 });
             };
 
-            function inserirValoresColaborador(colaborador) {
+            function inserirValores(colaborador) {
                 for (var key in colaborador) {
                     if (colaborador.hasOwnProperty(key) && colaborador[key]) {
                         $('#input-' + key).val(colaborador[key]);
@@ -141,7 +181,7 @@
                         $('#partialContainerLocaisDores').html(result);
                     }
                 });
-            };
+            };    
         });
     </script>
 }

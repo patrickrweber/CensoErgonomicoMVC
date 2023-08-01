@@ -20,24 +20,18 @@ namespace CensoErgonomico.Domain.DTOs
         {
             get
             {
-                switch (imc)
-                {
-                    case 0:
-                        return TipoClassificacaoIMC.Desnutricao;
-                    case 1:
-                        return TipoClassificacaoIMC.Eutrofia;
-                    case 2:
-                        return TipoClassificacaoIMC.Sobrepeso;
-                    case 3:
-                        return TipoClassificacaoIMC.ObesidadeI;
-                    case 4:
-                        return TipoClassificacaoIMC.ObesidadeII;
-                    case 5:
-                        return TipoClassificacaoIMC.ObesidadeIII;
-                    default:
-                        return TipoClassificacaoIMC.NR;
-                }
+                if (imc < 18.25)
+                    return TipoClassificacaoIMC.Desnutricao;
+                if (imc < 24.9)
+                    return TipoClassificacaoIMC.Eutrofia;
+                if (imc < 29.9)
+                    return TipoClassificacaoIMC.Sobrepeso;
+                if (imc < 34.9)
+                    return TipoClassificacaoIMC.ObesidadeI;
+                if (imc < 39.9)
+                    return TipoClassificacaoIMC.ObesidadeII;
 
+                return TipoClassificacaoIMC.ObesidadeIII;
             }
         }
         public Guid pessoaId { get; set; }

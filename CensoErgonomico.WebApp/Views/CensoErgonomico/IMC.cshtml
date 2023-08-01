@@ -1,0 +1,36 @@
+﻿@using CensoErgonomico.Domain.DTOs;
+@model CensoErgonomicoDTO;
+@{
+    PessoaDTO colaboradores = ViewBag.IMCPessoa;
+    ViewData["Title"] = "Censo ergonômico";
+}
+
+<section>
+    <form id="form-censo" asp-controller="CensoErgonomico" asp-action="Create" method="POST">
+        <div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="fumante" class="control-label"> Fumante </label>
+                        <input id="input-fumante" type="checkbox" asp-for="fumante" />
+                        <span asp-validation-for="fumante" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="praticaExercicio" class="control-label"> Pratica Exercício </label>
+                        <input id="input-praticaExercicio" type="checkbox" asp-for="praticaExercicio" />
+                        <span asp-validation-for="praticaExercicio" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="senteDor" class="control-label"> Sente dor </label>
+                        <input id="input-senteDor" type="checkbox" asp-for="senteDor" />
+                        <span asp-validation-for="senteDor" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
