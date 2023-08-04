@@ -1,41 +1,29 @@
 ﻿@using CensoErgonomico.Domain.DTOs;
 @model PessoaLinks;
-@{
-    ViewData["Title"] = "Registro de Pessoa";
-}
 
-<section >
-    <h1> @ViewData["Title"]</h1>
-    <div class="mt-2">
-        @await Html.PartialAsync("_MessageResult")
-    </div>
-    <form id="form-pessoa" asp-controller="Pessoa" asp-action="Create" method="POST">
-        <div class="row">
-            <div class="col-md-2">
+<section class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mt-2">
+                @await Html.PartialAsync("_MessageResult")
+            </div>
+            <form id="form-pessoa" asp-controller="Pessoa" asp-action="Create" method="POST">
                 <div class="form-group">
                     <label asp-for="Pessoa.nome" class="control-label"> Nome </label>
-                    <input id="input-nome" type="text" asp-for="Pessoa.nome" />
+                    <input id="input-nome" type="text" asp-for="Pessoa.nome" class="form-control" />
                     <span asp-validation-for="Pessoa.nome" class="text-danger"></span>
                 </div>
-            </div>
-            <div class="col-md-2">
                 <div class="form-group">
                     <label asp-for="Pessoa.cpf" class="control-label"> CPF </label>
-                    <input id="input-cpf" type="text" asp-for="Pessoa.cpf" />
+                    <input id="input-cpf" type="text" asp-for="Pessoa.cpf" class="form-control" />
                     <span asp-validation-for="Pessoa.cpf" class="text-danger"></span>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
                 <div class="form-group">
                     <label asp-for="Pessoa.dataNascimento" class="control-label"> Data de Nascimento</label>
-                    <input id="input-dataNascimento" type="datetime-local" asp-for="Pessoa.dataNascimento" />
+                    <input id="input-dataNascimento" type="datetime-local" asp-for="Pessoa.dataNascimento" class="form-control" />
                     <span asp-validation-for="Pessoa.dataNascimento" class="text-danger"></span>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group flex-grow-1">
+                <div class="form-group">
                     <label asp-for="Pessoa.sexo" class="control-label">Sexo</label>
                     <select asp-for="Pessoa.sexo" class="form-control">
                         <option value="1">Masculino</option>
@@ -43,27 +31,49 @@
                         <option value="3">Outro</option>
                     </select>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
                 <div class="form-group">
-                   <label asp-for="IMC.altura" class="control-label"> Altura </label>
-                    <input id="input-altura" type="number" asp-for="IMC.altura" />
+                    <label asp-for="IMC.altura" class="control-label"> Altura </label>
+                    <input id="input-altura" type="number" asp-for="IMC.altura" class="form-control" />
                     <span asp-validation-for="IMC.altura" class="text-danger"></span>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group flex-grow-1">
+                <div class="form-group">
                     <label asp-for="IMC.peso" class="control-label"> Peso </label>
-                    <input id="input-cpf" type="number" asp-for="IMC.peso" />
+                    <input id="input-peso" type="number" asp-for="IMC.peso" class="form-control" />
                     <span asp-validation-for="IMC.peso" class="text-danger"></span>
                 </div>
-            </div>
+                <div class="form-group">
+                    <button type="submit" id="btn-cadastrar" data-dismiss="modal" class="btn btn-primary">Cadastrar</button>
+                </div>
+            </form>
         </div>
-
-        <div class="form-group">
-            <button id="btn-cadastrar" class="btn bg-shark text-black" style="width: 7rem;">Cadastrar</button>
-        </div>
-    </form>
+    </div>
 </section>
+
+<script>
+ $(document).ready(function () {
+        $('#btn-cadastrar').click(function () {
+            // Obtenha os dados do formulário (se houver) ou qualquer outra lógica necessária
+            var formData = $('form-pessoa').serialize();
+            // Faça a chamada AJAX para a action que realiza o salvamento
+            $.ajax({
+                url: '@Url.Action("Create", "Pessoa")',
+                type: 'POST',
+                data: /* Dados do formulário ou qualquer outra lógica necessária */,
+                success: function (data) {
+                    // Verifique o resultado retornado pela action
+                    if (data.sucesso) {
+                        // Se o salvamento foi bem-sucedido, feche o modal
+                        $('#seuModal').modal('hide');
+                    } else {
+                        // Se ocorreu um erro, exiba uma mensagem de erro ou realize outras ações apropriadas
+                        alert('Erro ao salvar os dados. Por favor, tente novamente.');
+                    }
+                },
+                error: function () {
+                    // Caso ocorra algum erro na requisição AJAX
+                    alert('Ocorreu um erro na comunicação com o servidor. Por favor, tente novamente.');
+                }
+            });
+        });
+    });
+</script>

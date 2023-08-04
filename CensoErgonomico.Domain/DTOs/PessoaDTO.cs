@@ -9,6 +9,13 @@ namespace CensoErgonomico.Domain.DTOs
         public string nome { get; set; }
         public string cpf { get; set; }
         public DateTime dataNascimento { get; set; }
+        public int idade 
+        { 
+            get
+            {
+                return DateTime.Today.Year - dataNascimento.Year;
+            }
+        }
         public TipoSexo sexo { get; set; }
         public virtual ICollection<Colaborador>? colaboradores { get; set; }
 

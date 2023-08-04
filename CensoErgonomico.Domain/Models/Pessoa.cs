@@ -18,7 +18,13 @@ namespace CensoErgonomico.Domain.Models
 
         [Required(ErrorMessage = "Digite o sexo da pessoa")]
         public TipoSexo Sexo  { get; set; }
-
+        public int Idade
+        {
+            get
+            {
+                return DateTime.Today.Year - DataNascimento.Year;
+            }
+        }
 
         public virtual ICollection<Colaborador>?  Colaboradores { get; set;}
     }

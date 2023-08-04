@@ -15,8 +15,15 @@ namespace CensoErgonomico.WebApp.Controllers
             _pessoaRepository = pessoaRepository;
             _IMCRepository = IMCRepository;
         }
-        public IActionResult Index()
+        public IActionResult Cadastrar()
         {
+            return PartialView("~/Views/Pessoa/Create.cshtml");
+        }
+        public IActionResult Index()
+        {   
+            PessoaDTO pessoaDTO = new PessoaDTO();
+            List<PessoaDTO> pessoas = _pessoaRepository.GetAll().Select(p => pessoaDTO.MapToDTO(p)).ToList();
+            ViewBag.Pessoas = pessoas;
             return PartialView("~/Views/Pessoa/Index.cshtml");
         }
 
@@ -33,9 +40,9 @@ namespace CensoErgonomico.WebApp.Controllers
                 _IMCRepository.Save(IMC);
 
                 TempData["Success"] = "Salvo com sucesso";
-            }
 
-            return RedirectToAction("Index", "Cadastros");
+            }
+            return PartialView("~/Views/Pessoa/Index.cshtml", pessoaIMC);
         }
     }
 }

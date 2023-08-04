@@ -59,7 +59,7 @@ namespace CensoErgonomico.WebApp.Controllers
 
             var colabJson = new
             {
-                idade = DateTime.Today.Year - colaboradorDTO.pessoa.DataNascimento.Year,
+                idade = colaboradorDTO.pessoa.Idade,
                 sexo = colaboradorDTO.pessoa.Sexo.ToString(),
                 turno = colaboradorDTO.turno.ToString(),
                 setor = colaboradorDTO.setor.Nome,
